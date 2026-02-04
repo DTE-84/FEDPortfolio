@@ -801,8 +801,8 @@ footer {
   background-color: transparent;
   border: none;
   position: fixed;
-  bottom: 32px;
-  left: 40px;
+  top: 140px;
+  right: 40px;
   box-shadow: 0 4px 50px 0 rgba(209, 254, 0, 0.2);
   transition: all 0.3s ease;
   animation: float 3s ease-in-out infinite;

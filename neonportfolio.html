@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DTE E-Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Shadows+Into+Light&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/66240d21b2.js" crossorigin="anonymous"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("zmPiRmxRkScwdiYFX");
+      })();
+    </script>
+  </head>
+  <body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+      <div class="neon-grid"></div>
+      <div class="glow-orb orb1"></div>
+      <div class="glow-orb orb2"></div>
+      <div class="glow-orb orb3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav> 
+       
+      <ul class="nav-links">
+        <li><a href="#home" target="_blank" class="nav-link  link__hover-effect"></a></li>
+        <li><a href="#about" target="_blank" class="nav-link link__hover-effect"></a></li>
+        <li><a href="#projects" target="_blank" class="nav-link link__hover-effect"></a></li>
+        <li><a href="#" onClick="toggleModal()" class="nav-link  link__hover-effect"></a></li>
+      </ul>
+    </nav>
+
+    <!-- Contact -->
+       <button class="toparrow__btn click">
+            <i class="fas fa-arrow-up"></i>
+            </button>
+     <a href="#">
+            <button class="mail__btn click" onclick="toggleModal()">
+                <i class="fa-solid fa-envelope"></i>
+            </button>
+            </a>
+            <div class="main-modal">
+                
+            <div class="modal__half modal__about">
+                <h3 class="modal__title modal__title--about">Here's a bit about me.</h3>
+                <h4 class="modal__sub-title modal__sub-title--about">Frontend Software Engineer.</h4>
+                <p class="modal__para">
+                    I'm a 41 year old<span class="Blue"> Frontend Software Engineer</span>. I love the challenge of
+                    working on and solving extremely difficult engineering problems.
+                    <br>
+                    I'm currently learning to become a<span class="Blue"> Full Stack Software Engineer</span> with a
+                    focus on the frontend. I was taught by a team consisting of some of the most <span
+                        class="Blue">talented</span> and<span class="Blue"> experienced</span> software
+                    engineers,</span> including David Bragg at Frontend Simplified Mentorship Program.
+                </p>
+                <div class="modal__languages">
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/240px-HTML5_Badge.svg.png"
+                            alt="">
+                        <span class="language__name">HTML</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://cdn.iconscout.com/icon/free/png-256/css-131-722685.png" alt="">
+                        <span class="language__name">CSS</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://cdn.iconscout.com/icon/free/png-256/javascript-1-225993.png" alt="">
+                        <span class="language__name">JavaScript</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://cdn.iconscout.com/icon/free/png-256/typescript-3521774-2945272.png" alt="">
+                        <span class="language__name">TypeScript</span>
+                    </figure>
+                    <figure class="modal__language">
+                        <img class="modal__language--img"
+                            src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"
+                            alt="">
+                        <span class="language__name">React</span>
+                    </figure>
+
+                </div>
+            </div>
+            <div class="modal__half modal__contact">
+                <i class="fas fa-times modal__exit click" onclick="toggleModal()"></i>
+                <h3 class="modal__title modal__title--contact">
+                    Let's have a chat!
+                </h3>
+                <h3 class="modal__sub-title modal__sub-title--contact">
+                    I'm currently open to new opportunities.
+                </h3>
+                <form id="contact__form" onsubmit="contact(event)">
+                    <div class="form__item">
+                        <label class="form__item--label">Name</label>
+                        <input class="input" name="user_name" type="text" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">E-mail</label>
+                        <input class="input" name="user_email" type="email" required></input>
+                    </div>
+                    <div class="form__item">
+                        <label class="form__item--label">Message</label>
+                        <textarea class="input" name="message" type="text" required></textarea>
+                    </div>
+                    <button id="contact__submit" class="form__submit">
+                        Send
+                    </button>
+                </form>
+                <div class="modal__overlay modal__overlay--loading">
+                    <i class="fas fa-spinner"></i>
+                </div>
+                <div class="modal__overlay modal__overlay--success">
+                    Thanks for the message! Looking forward to speaking to you soon.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Hi, I'm Drew Ernst</h1>
+        <p class="typewriter">Frontend Developer | Creative Problem Solver</p>
+        <a href="#projects" class="cta-button">View My Work</a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <p>
+            A results-oriented software engineer with a proven track record of leadership and client management. Transitioning from a successful
+career in operations and management to frontend development, I bring a unique blend of technical expertise and business acumen.
+Passionate about building intuitive, user-centric web applications and continuously expanding my technical skillset.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>TREACT</h3>
+            <p>
+              A responsive web application built with modern JavaScript
+              frameworks. Features include dynamic content loading, smooth
+              animations, and mobile-first design.
+            </p>
+            <div class="project-links">
+              <a href="https://dte-84.github.io/treact-2/" target="_blank" class="project-link">The Project</a>
+              <a href="https://github.com/DTE-84/treact-2" target="_blank" class="project-link">GitHub</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>E-STORE</h3>
+            <p>
+              E-commerce platform with shopping cart functionality, user
+              authentication, and payment integration. Clean UI with focus on
+              user experience.
+            </p>
+            <div class="project-links">
+              <a href="https://ecommercelibray-react-a3c104c7bd57.herokuapp.com/" target="_blank" class="project-link">The Project</a>
+              <a href= "https://github.com/DTE-84/EcommerceLibrary" target="_blank" class="project-link">GitHub</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>CAR SALES</h3>
+            <p>
+              Using HTML, CSS, and JavaScript, I created a responsive webpage for a local car salesman.  Still trying to get live API from the dealership but it will be ready to deploy when we do.
+            </p>
+            <div class="project-links">
+              <a href="https://dte-84.github.io/CarsFinal/" target="_blank" class="project-link">The Project</a>
+              <a href="https://github.com/DTE-84/CarsFinal" target="_blank" class="project-link">GitHub</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Tony's Landscaping LLC</h3>
+            <p>
+              Created this page for a Landscaping company in the STL area. Highlights what the company has to offer, gallery and clear means of contact to Tony for a bid.
+            </p>
+            <div class="project-links">
+              <a href="https://dte-84.github.io/TonysLandscaping/" target="_blank" class="project-link">The Project</a>
+              <a href="https://github.com/DTE-84/TonysLandscaping" target="_blank" class="project-link">GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact__footer" class="footer__contact">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="font-size: 1.2rem; margin-bottom: 20px">
+          Let's work together on your next project!
+        </p>
+    </div>
+       
+        <div class="contact-links">
+          <a href="#" onclick="toggleModal()" class="
+          footer__social--link
+          link__hover-effect">
+          Contact Me
+    </a>
+    <a href="https://github.com/DTE-84" target="_blank" class="
+          footer__social--link
+          link__hover-effect">
+          GITHUB</a>
+         <a href="https://www.linkedin.com/in/dte84/" target="_blank" class="
+          footer__social--link
+          link__hover-effect
+                  ">LinkedIn
+                </a>
+          <a href="./assets/DTEFEDResume.pdf" target="_blank" class="
+          footer__social--link
+          link__hover-effect">
+          Resume
+        </a>
+        </div>
+      </div>
+    </section>
+    </div>
+    <div class="footer__copyright">Copyright &copy; 2025 Drew Ernst</div> <!-- Closing main-content div -->
+    
+      
+    <footer>
+    </section>
+   
+</footer> 
+<script src="script.js"></script>
+  </body>
+</html>

@@ -1,3 +1,28 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("protocol-toggle");
+  const path = window.location.pathname;
+
+  if (path.includes("indexblue.html")) {
+    toggle.checked = true;
+  } else {
+    toggle.checked = false;
+  }
+
+  toggle.addEventListener("change", () => {
+    const loader = document.getElementById("protocol-loader");
+    loader.style.display = "flex";
+    loader.style.opacity = "1";
+
+    setTimeout(() => {
+      if (toggle.checked) {
+        window.location.href = "indexblue.html";
+      } else {
+        window.location.href = "index.html";
+      }
+    }, 500);
+  });
+});
+
 let isMainModalOpen = false;
 let isProjectModalOpen = false;
 
@@ -109,11 +134,11 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-
 let mybutton = document.getElementById("myBtn");
 
-
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function () {
+  scrollFunction();
+};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -123,60 +148,109 @@ function scrollFunction() {
   }
 }
 
-
 function topFunction() {
-  document.body.scrollTop = 0; 
-  document.documentElement.scrollTop = 0; 
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
 
-// 1. Handle the Progress Line Fill
-window.onscroll = function() {
-    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    const scrolled = (winScroll / height) * 100;
-    document.getElementById("progressBar").style.height = scrolled + "%";
+window.onscroll = function () {
+  const winScroll =
+    document.body.scrollTop || document.documentElement.scrollTop;
+  const height =
+    document.documentElement.scrollHeight -
+    document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById("progressBar").style.height = scrolled + "%";
 };
 
-// --- SCROLL NAV LOGIC ---
-const orbs = document.querySelectorAll('.orb-wrapper');
+const orbs = document.querySelectorAll(".orb-wrapper");
 const progressBar = document.getElementById("progressBar");
 
 const observerOptions = {
-    root: null,
-    rootMargin: '-40% 0px -40% 0px', 
-    threshold: 0
+  root: null,
+  rootMargin: "-40% 0px -40% 0px",
+  threshold: 0,
 };
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const sectionId = entry.target.id;
-            const targetOrbWrapper = document.querySelector(`[data-section="${sectionId}"]`);
-            
-            if (targetOrbWrapper) {
-                orbs.forEach(orb => orb.classList.remove('active'));
-                targetOrbWrapper.classList.add('active');
-                
-                
-                progressBar.style.height = targetOrbWrapper.style.top;
-            }
-        }
-    });
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      const sectionId = entry.target.id;
+      const targetOrbWrapper = document.querySelector(
+        `[data-section="${sectionId}"]`,
+      );
+
+      if (targetOrbWrapper) {
+        orbs.forEach((orb) => orb.classList.remove("active"));
+        targetOrbWrapper.classList.add("active");
+
+        progressBar.style.height = targetOrbWrapper.style.top;
+      }
+    }
+  });
 }, observerOptions);
 
-// Observe your main sections
-['home', 'about', 'projects', 'contact__footer'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) observer.observe(el);
+["home", "about", "projects", "contact__footer"].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
 });
 
-// Click to scroll logic
-orbs.forEach(wrapper => {
-    wrapper.addEventListener('click', () => {
-        const sectionId = wrapper.getAttribute('data-section');
-        const target = document.getElementById(sectionId);
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
+orbs.forEach((wrapper) => {
+  wrapper.addEventListener("click", () => {
+    const sectionId = wrapper.getAttribute("data-section");
+    const target = document.getElementById(sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const toggle = document.getElementById("protocol-toggle");
+  const currentPage = window.location.pathname;
+
+  if (currentPage.includes("indexblue.html")) {
+    toggle.checked = true;
+  } else {
+    toggle.checked = false;
+  }
+
+  toggle.addEventListener("change", () => {
+    setTimeout(() => {
+      if (toggle.checked) {
+        window.location.href = "indexblue.html";
+      } else {
+        window.location.href = "index.html";
+      }
+    }, 300);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loader = document.getElementById("protocol-loader");
+  const toggle = document.getElementById("protocol-toggle");
+  const path = window.location.pathname;
+
+  setTimeout(() => {
+    loader.style.opacity = "0";
+    setTimeout(() => (loader.style.display = "none"), 500);
+  }, 600);
+
+  if (path.includes("indexblue.html")) {
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener("change", () => {
+    // Show loader again before moving
+    loader.style.display = "flex";
+    loader.style.opacity = "1";
+
+    setTimeout(() => {
+      if (toggle.checked) {
+        window.location.href = "indexblue.html";
+      } else {
+        window.location.href = "index.html";
+      }
+    }, 400);
+  });
 });

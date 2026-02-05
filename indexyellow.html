@@ -4,17 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DTE E-Portfolio</title>
-    <link rel="icon" href="data:,">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
         href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Shadows+Into+Light&family=Smooch+Sans:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="styleblue.css" />
-    
+    <link rel="stylesheet" href="styleyellow.css" />
+    <script src="scriptyellow.js" defer></script>
     <script src="https://kit.fontawesome.com/66240d21b2.js" crossorigin="anonymous"></script>
-   
-    
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init("zmPiRmxRkScwdiYFX");
+      })();
+    </script>
   </head>
   <body>
     <div id="protocol-loader">
@@ -22,6 +28,11 @@
         <div class="glitch-text" data-text="REBOOTING PROTOCOL...">REBOOTING PROTOCOL...</div>
         <div class="load-bar"><div class="load-progress"></div></div>
     </div>
+</div>
+    <div class="protocol-switch">
+  <input type="checkbox" id="protocol-toggle" class="protocol-input">
+  <label for="protocol-toggle" class="protocol-label">
+    </label>
 </div>
     
     <!-- Animated Background -->
@@ -36,23 +47,22 @@
           </div>
 
     <!-- Navigation -->
-    <nav class="circuit-nav">
-      <div class="protocol-switcher">
-  <span class="protocol-label">INDX-YEL</span>
-  <label class="switch">
-    <input type="checkbox" id="protocol-toggle">
-    <span class="slider"></span>
-  </label>
-  <span class="protocol-label">INDX-CYN</span>
+    <nav> 
+      <a id="top"></a>
+      <ul class="nav-links">
+     <div class="protocol-switch">
+  <input type="checkbox" id="protocol-toggle" class="protocol-input">
+  <label for="protocol-toggle" class="slider">
+    </label>
+  <span class="protocol-label">PROTOCOL</span>
 </div>
-       <a id="top"></a>    
-  <ul class="nav-links">
-    <li class="chip-socket"><a href="#home" class="tech-tab nav-link">Home</a></li>
-    <li class="chip-socket"><a href="#about" class="tech-tab nav-link">About</a></li>
-    <li class="chip-socket"><a href="#projects" class="tech-tab nav-link">Projects</a></li>
-    <li class="chip-socket"><a href="javascript:void(0)" onclick="toggleModal()" class="tech-tab nav-link">Contact</a></li>
-  </ul>
-</nav>
+        <li class="nav__link--anchor">       
+         <li><a href="#home" target="_blank" class="nav-link  link__hover-effect"></a></li>
+        <li><a href="#about" target="_blank" class="nav-link link__hover-effect"></a></li>
+        <li><a href="#projects" target="_blank" class="nav-link link__hover-effect"></a></li>
+        <li><a href="#" onClick="toggleModal()" class="nav-link  link__hover-effect"></a></li>
+      </ul>
+    </nav>
    
     <!-- Contact -->
        <button onClick="topFunction()" id="myBtn" class="toparrow__btn click">
@@ -142,7 +152,7 @@
             </div>
         </div>
     </div>
-<div id="main-content-wrapper">
+
     <!-- Hero Section -->
     <section id="home" class="hero">
       <div class="hero-content">
@@ -294,19 +304,27 @@ My previous career in<b class="bold"> leadership</b> taught me that the best sof
         </p>
     </div>
        
-        <div class="footer__social--list">         
+        <div class="contact-links">
+          <a href="#" onclick="toggleModal()" class="
+          footer__social--link
+          link__hover-effect">
+          Contact Me
     </a>
-    <div class="footer__social--list">
-  <a href="https://github.com/dte84" target="_blank" class="tech-tab nav-link">
-    GitHub
-  </a>
-  <a href="https://www.linkedin.com/in/dte84/" target="_blank" class="tech-tab nav-link">
-    LinkedIn
-  </a>
-  <a href="./assets/DTEFEresume.pdf" target="_blank" class="tech-tab nav-link">
-    Resume
-  </a>
-</div>
+    <a href="https://github.com/DTE-84" target="_blank" class="
+          footer__social--link
+          link__hover-effect">
+          GITHUB</a>
+         <a href="https://www.linkedin.com/in/dte84/" target="_blank" class="
+          footer__social--link
+          link__hover-effect
+                  ">LinkedIn
+                </a>
+          <a href="./assets/DTEFEresume.pdf" target="_blank" class="
+          footer__social--link
+          link__hover-effect">
+          Resume
+         </a>
+        </div>
       </div>
     </section>
     </div>
@@ -336,18 +354,7 @@ My previous career in<b class="bold"> leadership</b> taught me that the best sof
         </div>
     </div>
 
-
-
- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-<script type="text/javascript">
-  (function () {
-    emailjs.init("zmPiRmxRkScwdiYFX");
-  })();
-</script>
-
-<script src="scriptblue.js"></script>
-
+<script src="scriptyellow.js"></script>
   </body>
 </html>
  

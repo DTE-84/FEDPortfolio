@@ -1,26 +1,39 @@
 document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("protocol-toggle");
+  const loader = document.getElementById("protocol-loader");
   const path = window.location.pathname;
 
-  if (path.includes("indexblue.html")) {
-    toggle.checked = true;
-  } else {
-    toggle.checked = false;
+  // --- 1. ARRIVAL: Hide the loader when the page loads ---
+  if (loader) {
+    setTimeout(() => {
+      loader.style.opacity = "0";
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+    }, 600);
   }
 
-  toggle.addEventListener("change", () => {
-    const loader = document.getElementById("protocol-loader");
-    loader.style.display = "flex";
-    loader.style.opacity = "1";
+  // --- 2. STATE: Sync toggle position with the current URL ---
+  if (toggle) {
+    toggle.checked = path.includes("indexyellow.html");
 
-    setTimeout(() => {
-      if (toggle.checked) {
-        window.location.href = "indexblue.html";
-      } else {
-        window.location.href = "index.html";
+    // --- 3. DEPARTURE: Switch pages when toggle changes ---
+    toggle.addEventListener("change", () => {
+      if (loader) {
+        loader.style.display = "flex";
+        void loader.offsetWidth; // Force CSS refresh
+        loader.style.opacity = "1";
       }
-    }, 500);
-  });
+
+      setTimeout(() => {
+        if (toggle.checked) {
+          window.location.href = "indexyellow.html";
+        } else {
+          window.location.href = "index.html";
+        }
+      }, 500);
+    });
+  }
 });
 
 let isMainModalOpen = false;
@@ -209,7 +222,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggle = document.getElementById("protocol-toggle");
   const currentPage = window.location.pathname;
 
-  if (currentPage.includes("indexblue.html")) {
+  if (currentPage.includes("indexyellow.html")) {
     toggle.checked = true;
   } else {
     toggle.checked = false;
@@ -218,7 +231,7 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle.addEventListener("change", () => {
     setTimeout(() => {
       if (toggle.checked) {
-        window.location.href = "indexblue.html";
+        window.location.href = "indexyellow.html";
       } else {
         window.location.href = "index.html";
       }
@@ -236,7 +249,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => (loader.style.display = "none"), 500);
   }, 600);
 
-  if (path.includes("indexblue.html")) {
+  if (path.includes("indexyellow.html")) {
     toggle.checked = true;
   }
 
@@ -247,10 +260,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setTimeout(() => {
       if (toggle.checked) {
-        window.location.href = "indexblue.html";
+        window.location.href = "indexyellow.html";
       } else {
         window.location.href = "index.html";
       }
     }, 400);
   });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var loader = document.getElementById("protocol-loader");
+
+  console.log("DOM Loaded. Searching for loader...");
+
+  if (loader) {
+    console.log("Loader found! Starting fade-out timer.");
+    // We use a small delay so the user sees the 'Rebooting' text
+    setTimeout(function () {
+      loader.style.opacity = "0";
+      console.log("Opacity set to 0.");
+
+      setTimeout(function () {
+        loader.style.display = "none";
+        console.log("Loader display set to none. Site should be visible.");
+      }, 500);
+    }, 600);
+  } else {
+    console.error(
+      "ERROR: Could not find element with ID 'protocol-loader'. Check your HTML!",
+    );
+  }
 });

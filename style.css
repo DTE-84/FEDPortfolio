@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   font-family: "Courier New", monospace;
   background: #0a0a0a;
@@ -457,6 +462,8 @@ html {
   scroll-behavior: smooth;
   overflow-anchor: none;
 }
+
+
 
 /* MODAL */
 .main-modal {
@@ -917,6 +924,10 @@ footer {
   z-index: 9999;
   pointer-events: none;
   overflow: visible; 
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* --- SCROLL NAV WIDGET --- */
@@ -1078,3 +1089,13 @@ footer {
   border-top: 1px solid rgba(209, 254, 0, 0.1); 
   margin-top: 50px;
 }
+
+@media (max-width: 768px) {
+  .section {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  }
+}
+

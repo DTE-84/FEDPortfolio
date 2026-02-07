@@ -353,7 +353,6 @@ nav {
   opacity: 1;
   transform: translateY(0);
 }
-
 .projects {
   padding: 100px 0;
   min-height: 100vh;
@@ -382,6 +381,7 @@ nav {
   opacity: 1;
   transform: translateY(0);
 }
+
 
 .project-card:hover {
   transform: translateY(-10px);
@@ -423,9 +423,43 @@ nav {
 }
 
 .project-link:hover {
-  background: #d1fe00;
+  background: #22d3ee;
   color: #0a0a0a;
-  box-shadow: 0 0 20px rgba(209, 254, 0, 0.5);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.thumbnail-container {
+    
+    position: absolute;
+    left: 100%;
+    bottom: 10px;
+    right: 10px;
+    width: 300px; 
+    height: auto;
+    box-shadow: 0 4px 15px #d1fe00;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-left: 15px;
+    pointer-events: none;
+    transform: scale(0);
+    opacity: 0;
+    transform-origin:  right;
+    transition: transform 0.4s ease-out, opacity 0.4s ease-out;
+    z-index: 10;
+}
+
+.project-card:hover .thumbnail-container {
+    z-index: 10;
+    transform: translateX(10px) scale(1); 
+    opacity: 1;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.thumbnail-container img {   
+    width: 100%;
+    height: auto;     
 }
 
 .footer__contact {

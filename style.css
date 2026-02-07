@@ -164,7 +164,7 @@ h4 {
 
 /* Navigation */
 nav {
-  position: sticky;
+  position: fixed;
   display: inline-block;
   justify-content: center;
   top: 0;
@@ -180,7 +180,7 @@ nav {
 }
 
 .circuit-nav {
-  position: relative;
+  position: fixed;
   justify-content: space-evenly;
   background: rgba(10, 10, 10, 0.8);
   backdrop-filter: blur(10px);
